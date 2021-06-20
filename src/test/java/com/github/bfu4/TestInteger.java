@@ -6,23 +6,6 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openjdk.jmh.annotations.Setup;
-import org.openjdk.jmh.annotations.State;
-import org.openjdk.jmh.annotations.Benchmark;
-import org.openjdk.jmh.annotations.Scope;
-import org.openjdk.jmh.annotations.Level;
-import org.openjdk.jmh.annotations.Mode;
-import org.openjdk.jmh.infra.Blackhole;
-import org.openjdk.jmh.results.RunResult;
-import org.openjdk.jmh.runner.Runner;
-import org.openjdk.jmh.runner.RunnerException;
-import org.openjdk.jmh.runner.options.Options;
-import org.openjdk.jmh.runner.options.OptionsBuilder;
-import org.openjdk.jmh.runner.options.TimeValue;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Test the integer parser.
