@@ -5,27 +5,27 @@ package com.github.bfu4.stringparse.parser;
  * @author bfu4
  * @since v1.0
  */
-public enum StringParserType {
+public class StringParserType {
 
     /**
      * Integer type.
      */
-    INTEGER(Integer.class),
+    public static final StringParserType INTEGER = new StringParserType(Integer.class);
 
     /**
      * Double type.
      */
-    DOUBLE(Double.class),
+   public static final StringParserType DOUBLE = new StringParserType(Double.class);
 
     /**
      * Float type.
      */
-    FLOAT(Float.class),
+    public static final StringParserType FLOAT = new StringParserType(Float.class);
 
     /**
      * Short type.
      */
-    SHORT(Short.class);
+    public static final StringParserType SHORT = new StringParserType(Short.class);
 
     /**
      * Type.
@@ -36,7 +36,7 @@ public enum StringParserType {
      * Create a string parser type with the specified class type.
      * @param type      type.
      */
-    StringParserType(final Class<?> type) {
+    public StringParserType(final Class<?> type) {
         this.type = type;
     }
 

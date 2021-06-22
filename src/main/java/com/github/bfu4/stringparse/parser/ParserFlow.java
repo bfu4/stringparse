@@ -1,6 +1,5 @@
 package com.github.bfu4.stringparse.parser;
 
-import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -12,20 +11,20 @@ public final class ParserFlow<T> {
      * @return          empty parser flow.
      */
     public static <T> ParserFlow<T> empty() {
-        return new ParserFlow<>((string) -> Optional.empty());
+        return new ParserFlow<T>((string) -> null);
     }
 
 
     /**
      * Parser instance.
      */
-    private final Parser<T> parser;
+    private final Function<String, T> parser;
 
     /**
      * Create a new parser flow with the specified parser.
      * @param parser        parser
      */
-    public ParserFlow(@Nullable final Parser<T> parser) {
+    public ParserFlow(final Function<String, T> parser) {
         this.parser = parser;
     }
 
@@ -33,19 +32,18 @@ public final class ParserFlow<T> {
      * Get the parser.
      * @return      parser
      */
-    public Parser<T> getParser() {
+    public Function<String, T> getParser() {
         return parser;
     }
 
     /**
      * Complete the flow, into an optional with the specified function and string.
-     * @param function      function
      * @param string        string
      * @return              parsed value
      */
-    public Optional<T> flow(final Function<String, T> function, final String string) {
+    public Optional<T> flow(final String string) {
         try {
-            return Optional.of(function.apply(string));
+            return Optional.of(parser.apply(string));
         } catch (Exception exception) {
             return Optional.empty();
         }

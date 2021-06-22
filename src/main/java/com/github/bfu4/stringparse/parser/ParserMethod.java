@@ -8,27 +8,27 @@ import java.util.function.Function;
  * @author bfu4
  * @since v1.0
  */
-public enum ParserMethod {
+public final class ParserMethod {
 
     /**
      * Integer.
      */
-    INTEGER(StringParserType.INTEGER, Integer::parseInt),
+    public static final ParserMethod INTEGER = new ParserMethod(Integer.class, Integer::parseInt);
 
     /**
      * Double.
      */
-    DOUBLE(StringParserType.DOUBLE, Double::parseDouble),
+    public static final ParserMethod DOUBLE = new ParserMethod(Double.class, Double::parseDouble);
 
     /**
      * Float.
      */
-    FLOAT(StringParserType.FLOAT, Float::parseFloat),
+    public static final ParserMethod FLOAT = new ParserMethod(Float.class, Float::parseFloat);
 
     /**
      * Short.
      */
-    SHORT(StringParserType.SHORT, Short::parseShort);
+    public static final ParserMethod SHORT = new ParserMethod(Short.class, Short::parseShort);
 
     /**
      * Parser type.
@@ -41,20 +41,14 @@ public enum ParserMethod {
     private final ParserFlow<?> flow;
 
     /**
-     * Flow function.
-     */
-    private final Function<String, ?> function;
-
-    /**
      * Create a new parser method for the parser type.
      * @param type          type
      * @param function      function
      * @param <T>           type constraint
      */
-    <T> ParserMethod(final StringParserType type, final Function<String, T> function) {
-        this.type = type;
-        this.flow = ParserFlow.empty();
-        this.function = function;
+    public <T> ParserMethod(final Class<T> type, final Function<String, T> function) {
+        this.type = new StringParserType(type);
+        this.flow = new ParserFlow<>(function);
     }
 
     /**
@@ -73,7 +67,7 @@ public enum ParserMethod {
      */
     public <T> T apply(final String string) {
         ParserFlow<T> pf = (ParserFlow<T>) flow;
-        Optional<T> opt = pf.flow((Function<String, T>) function, string);
+        Optional<T> opt = pf.flow(string);
         return opt.orElse(null);
     }
 
