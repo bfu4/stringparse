@@ -1,5 +1,7 @@
 package com.github.bfu4.stringparse.parser;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -24,7 +26,7 @@ public final class ParserFlow<T> {
      * Create a new parser flow with the specified parser.
      * @param parser        parser
      */
-    public ParserFlow(final Function<String, T> parser) {
+    public ParserFlow(@NotNull final Function<String, T> parser) {
         this.parser = parser;
     }
 

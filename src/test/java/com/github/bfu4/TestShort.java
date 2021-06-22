@@ -12,42 +12,42 @@ import org.junit.Test;
  */
 public class TestShort {
 
-        /**
-         * Parser.
-         */
-        private StringParser parser;
+    /**
+     * Parser.
+     */
+    private StringParser parser;
 
-        /**
-         * Setup tasks.
-         */
-        @Before
-        public void setup() {
-            parser = new StringParser(ParserMethod.SHORT);
-        }
+    /**
+     * Setup tasks.
+     */
+    @Before
+    public void setup() {
+        parser = new StringParser(ParserMethod.SHORT);
+    }
 
-        /**
-         * Breakdown tasks.
-         */
-        @After
-        public void breakDown() {
-            parser = null;
-        }
+    /**
+     * Breakdown tasks.
+     */
+    @After
+    public void breakDown() {
+        parser = null;
+    }
 
-        /**
-         * Test valid string.
-         */
-        @Test
-        public void testValid() {
-            short value = parser.parse("5");
-            Assert.assertEquals(value, (short) 5);
-        }
+    /**
+     * Test valid string.
+     */
+    @Test
+    public void testValid() {
+        short value = parser.parse("5");
+        Assert.assertEquals(value, (short) 5);
+    }
 
-        /**
-         * Test invalid string.
-         */
-        @Test
-        public void testInvalidString() {
-            Assert.assertNull(parser.parse("eeee"));
-        }
+    /**
+     * Test invalid string.
+     */
+    @Test
+    public void testInvalidString() {
+        Assert.assertNull(parser.parse("eeee"));
+    }
 
 }

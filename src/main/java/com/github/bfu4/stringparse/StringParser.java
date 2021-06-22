@@ -2,6 +2,7 @@ package com.github.bfu4.stringparse;
 
 import com.github.bfu4.stringparse.parser.ParserMethod;
 import com.github.bfu4.stringparse.parser.StringParserType;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Main parser object.
@@ -22,7 +23,7 @@ public class StringParser {
      * Create a new StringParser from a given parser method.
      * @param method        parser method.
      */
-    public StringParser(final ParserMethod method) {
+    public StringParser(@NotNull final ParserMethod method) {
         this.method = method;
         this.type = method.getType();
     }
