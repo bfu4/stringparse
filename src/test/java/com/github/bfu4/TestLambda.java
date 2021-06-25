@@ -6,6 +6,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Test a simple lambda as a parser.
+ */
 public class TestLambda {
 
     /**
