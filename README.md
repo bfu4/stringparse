@@ -17,3 +17,19 @@ StringParser parser = new StringParser(ParserMethod.INTEGER);
 int value = parser.parse("5"); // 5
 Object invalid = parser.parse("invalid"); // null
 ```
+
+## As a Dependency
+```xml
+<!-- repositories -->
+<repository>
+    <id>public</id>
+    <url>https://nexus.sleeeepyti.me/repository/public</url>
+</repository>
+
+<!-- dependencies -->
+<dependency>
+    <groupId>com.github.bfu4</groupId>
+    <artifactId>stringparse</artifactId>
+    <version>1.0</version>
+</dependency>
+```
