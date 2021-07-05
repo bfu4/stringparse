@@ -13,7 +13,7 @@ public final class ParserFlow<T> {
      * @return          empty parser flow.
      */
     public static <T> ParserFlow<T> empty() {
-        return new ParserFlow<T>((string) -> null);
+        return new ParserFlow<T>(string -> null);
     }
 
 
@@ -46,7 +46,7 @@ public final class ParserFlow<T> {
     public Optional<T> flow(final String string) {
         try {
             return Optional.of(parser.apply(string));
-        } catch (Exception exception) {
+        } catch (final Exception exception) {
             return Optional.empty();
         }
     }

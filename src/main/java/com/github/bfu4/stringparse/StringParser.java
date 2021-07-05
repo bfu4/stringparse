@@ -21,7 +21,7 @@ public class StringParser {
 
     /**
      * Create a new StringParser from a given parser method.
-     * @param method        parser method.
+     * @param method parser method.
      */
     public StringParser(@NotNull final ParserMethod method) {
         this.method = method;
@@ -30,7 +30,7 @@ public class StringParser {
 
     /**
      * Get type.
-     * @return      get the parser type
+     * @return get the parser type
      */
     public StringParserType getType() {
         return type;
@@ -38,9 +38,9 @@ public class StringParser {
 
     /**
      * Parse a string and return the value typed as specified via the parser type.
-     * @param string        string
-     * @param <T>           type constraints
-     * @return              parsed value, or null
+     * @param string string
+     * @param <T>    type constraints
+     * @return parsed value, or null
      */
     public <T> T parse(final String string) {
         return method.apply(string);

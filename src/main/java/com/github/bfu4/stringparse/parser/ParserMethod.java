@@ -66,8 +66,8 @@ public final class ParserMethod {
      * @return              parsed
      */
     public <T> T apply(final String string) {
-        ParserFlow<T> pf = (ParserFlow<T>) flow;
-        Optional<T> opt = pf.flow(string);
+        final ParserFlow<T> pf = (ParserFlow<T>) flow;
+        final Optional<T> opt = pf.flow(string);
         return opt.orElse(null);
     }
 
